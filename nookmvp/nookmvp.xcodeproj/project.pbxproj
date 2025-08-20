@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		191CE4C72E4D4BCA009D317B /* NookEngineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191CE4C02E4D4BCA009D317B /* NookEngineManager.swift */; };
+		191CE4CD2E4D4BCA009D317B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 191CE4C62E4D4BCA009D317B /* Info.plist */; };
+		1920F6C22E4D4419009E5EFA /* nookmvpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920F6C12E4D4419009E5EFA /* nookmvpApp.swift */; };
+		1920F6C62E4D441B009E5EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1920F6C52E4D441B009E5EFA /* Assets.xcassets */; };
+		1920F6C92E4D441B009E5EFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1920F6C82E4D441B009E5EFA /* Preview Assets.xcassets */; };
+		1920F6D42E4D441C009E5EFA /* nookmvpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920F6D32E4D441C009E5EFA /* nookmvpTests.swift */; };
+		1920F6DE2E4D441C009E5EFA /* nookmvpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920F6DD2E4D441C009E5EFA /* nookmvpUITests.swift */; };
+		1920F6E02E4D441C009E5EFA /* nookmvpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920F6DF2E4D441C009E5EFA /* nookmvpUITestsLaunchTests.swift */; };
+		19B9DE572E55E2CC00475614 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B9DE562E55E2CC00475614 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1920F6D02E4D441C009E5EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1920F6B62E4D4419009E5EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1920F6BD2E4D4419009E5EFA;
+			remoteInfo = nookmvp;
+		};
+		1920F6DA2E4D441C009E5EFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1920F6B62E4D4419009E5EFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1920F6BD2E4D4419009E5EFA;
+			remoteInfo = nookmvp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		191CE4C02E4D4BCA009D317B /* NookEngineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NookEngineManager.swift; sourceTree = "<group>"; };
+		191CE4C62E4D4BCA009D317B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1920F6BE2E4D4419009E5EFA /* nookmvp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nookmvp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1920F6C12E4D4419009E5EFA /* nookmvpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nookmvpApp.swift; sourceTree = "<group>"; };
+		1920F6C52E4D441B009E5EFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1920F6C82E4D441B009E5EFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1920F6CA2E4D441B009E5EFA /* nookmvp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nookmvp.entitlements; sourceTree = "<group>"; };
+		1920F6CF2E4D441C009E5EFA /* nookmvpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nookmvpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1920F6D32E4D441C009E5EFA /* nookmvpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nookmvpTests.swift; sourceTree = "<group>"; };
+		1920F6D92E4D441C009E5EFA /* nookmvpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nookmvpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1920F6DD2E4D441C009E5EFA /* nookmvpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nookmvpUITests.swift; sourceTree = "<group>"; };
+		1920F6DF2E4D441C009E5EFA /* nookmvpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nookmvpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		19B9DE562E55E2CC00475614 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1920F6BB2E4D4419009E5EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1920F6CC2E4D441C009E5EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1920F6D62E4D441C009E5EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1920F6B52E4D4419009E5EFA = {
+			isa = PBXGroup;
+			children = (
+				1920F6C02E4D4419009E5EFA /* nookmvp */,
+				1920F6D22E4D441C009E5EFA /* nookmvpTests */,
+				1920F6DC2E4D441C009E5EFA /* nookmvpUITests */,
+				1920F6BF2E4D4419009E5EFA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1920F6BF2E4D4419009E5EFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1920F6BE2E4D4419009E5EFA /* nookmvp.app */,
+				1920F6CF2E4D441C009E5EFA /* nookmvpTests.xctest */,
+				1920F6D92E4D441C009E5EFA /* nookmvpUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1920F6C02E4D4419009E5EFA /* nookmvp */ = {
+			isa = PBXGroup;
+			children = (
+				1920F6C12E4D4419009E5EFA /* nookmvpApp.swift */,
+				19B9DE562E55E2CC00475614 /* ContentView.swift */,
+				1920F6C52E4D441B009E5EFA /* Assets.xcassets */,
+				1920F6CA2E4D441B009E5EFA /* nookmvp.entitlements */,
+				191CE4C62E4D4BCA009D317B /* Info.plist */,
+				191CE4C02E4D4BCA009D317B /* NookEngineManager.swift */,
+				1920F6C72E4D441B009E5EFA /* Preview Content */,
+			);
+			path = nookmvp;
+			sourceTree = "<group>";
+		};
+		1920F6C72E4D441B009E5EFA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1920F6C82E4D441B009E5EFA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1920F6D22E4D441C009E5EFA /* nookmvpTests */ = {
+			isa = PBXGroup;
+			children = (
+				1920F6D32E4D441C009E5EFA /* nookmvpTests.swift */,
+			);
+			path = nookmvpTests;
+			sourceTree = "<group>";
+		};
+		1920F6DC2E4D441C009E5EFA /* nookmvpUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1920F6DD2E4D441C009E5EFA /* nookmvpUITests.swift */,
+				1920F6DF2E4D441C009E5EFA /* nookmvpUITestsLaunchTests.swift */,
+			);
+			path = nookmvpUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1920F6BD2E4D4419009E5EFA /* nookmvp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1920F6E32E4D441C009E5EFA /* Build configuration list for PBXNativeTarget "nookmvp" */;
+			buildPhases = (
+				1920F6BA2E4D4419009E5EFA /* Sources */,
+				1920F6BB2E4D4419009E5EFA /* Frameworks */,
+				1920F6BC2E4D4419009E5EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nookmvp;
+			productName = nookmvp;
+			productReference = 1920F6BE2E4D4419009E5EFA /* nookmvp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1920F6CE2E4D441C009E5EFA /* nookmvpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1920F6E62E4D441C009E5EFA /* Build configuration list for PBXNativeTarget "nookmvpTests" */;
+			buildPhases = (
+				1920F6CB2E4D441C009E5EFA /* Sources */,
+				1920F6CC2E4D441C009E5EFA /* Frameworks */,
+				1920F6CD2E4D441C009E5EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1920F6D12E4D441C009E5EFA /* PBXTargetDependency */,
+			);
+			name = nookmvpTests;
+			productName = nookmvpTests;
+			productReference = 1920F6CF2E4D441C009E5EFA /* nookmvpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1920F6D82E4D441C009E5EFA /* nookmvpUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1920F6E92E4D441C009E5EFA /* Build configuration list for PBXNativeTarget "nookmvpUITests" */;
+			buildPhases = (
+				1920F6D52E4D441C009E5EFA /* Sources */,
+				1920F6D62E4D441C009E5EFA /* Frameworks */,
+				1920F6D72E4D441C009E5EFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1920F6DB2E4D441C009E5EFA /* PBXTargetDependency */,
+			);
+			name = nookmvpUITests;
+			productName = nookmvpUITests;
+			productReference = 1920F6D92E4D441C009E5EFA /* nookmvpUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1920F6B62E4D4419009E5EFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					1920F6BD2E4D4419009E5EFA = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					1920F6CE2E4D441C009E5EFA = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 1920F6BD2E4D4419009E5EFA;
+					};
+					1920F6D82E4D441C009E5EFA = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 1920F6BD2E4D4419009E5EFA;
+					};
+				};
+			};
+			buildConfigurationList = 1920F6B92E4D4419009E5EFA /* Build configuration list for PBXProject "nookmvp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1920F6B52E4D4419009E5EFA;
+			productRefGroup = 1920F6BF2E4D4419009E5EFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1920F6BD2E4D4419009E5EFA /* nookmvp */,
+				1920F6CE2E4D441C009E5EFA /* nookmvpTests */,
+				1920F6D82E4D441C009E5EFA /* nookmvpUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1920F6BC2E4D4419009E5EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191CE4CD2E4D4BCA009D317B /* Info.plist in Resources */,
+				1920F6C92E4D441B009E5EFA /* Preview Assets.xcassets in Resources */,
+				1920F6C62E4D441B009E5EFA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1920F6CD2E4D441C009E5EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1920F6D72E4D441C009E5EFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1920F6BA2E4D4419009E5EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191CE4C72E4D4BCA009D317B /* NookEngineManager.swift in Sources */,
+				19B9DE572E55E2CC00475614 /* ContentView.swift in Sources */,
+				1920F6C22E4D4419009E5EFA /* nookmvpApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1920F6CB2E4D441C009E5EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1920F6D42E4D441C009E5EFA /* nookmvpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1920F6D52E4D441C009E5EFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1920F6DE2E4D441C009E5EFA /* nookmvpUITests.swift in Sources */,
+				1920F6E02E4D441C009E5EFA /* nookmvpUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1920F6D12E4D441C009E5EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1920F6BD2E4D4419009E5EFA /* nookmvp */;
+			targetProxy = 1920F6D02E4D441C009E5EFA /* PBXContainerItemProxy */;
+		};
+		1920F6DB2E4D441C009E5EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1920F6BD2E4D4419009E5EFA /* nookmvp */;
+			targetProxy = 1920F6DA2E4D441C009E5EFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1920F6E12E4D441C009E5EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1920F6E22E4D441C009E5EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		1920F6E42E4D441C009E5EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = nookmvp/nookmvp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"nookmvp/Preview Content\"";
+				DEVELOPMENT_TEAM = 9AB98Y8J48;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tchanny.nookmvp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1920F6E52E4D441C009E5EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = nookmvp/nookmvp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"nookmvp/Preview Content\"";
+				DEVELOPMENT_TEAM = 9AB98Y8J48;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tchanny.nookmvp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		1920F6E72E4D441C009E5EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9AB98Y8J48;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tchanny.nookmvpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nookmvp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/nookmvp";
+			};
+			name = Debug;
+		};
+		1920F6E82E4D441C009E5EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9AB98Y8J48;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tchanny.nookmvpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nookmvp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/nookmvp";
+			};
+			name = Release;
+		};
+		1920F6EA2E4D441C009E5EFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9AB98Y8J48;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tchanny.nookmvpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = nookmvp;
+			};
+			name = Debug;
+		};
+		1920F6EB2E4D441C009E5EFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9AB98Y8J48;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tchanny.nookmvpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = nookmvp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1920F6B92E4D4419009E5EFA /* Build configuration list for PBXProject "nookmvp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1920F6E12E4D441C009E5EFA /* Debug */,
+				1920F6E22E4D441C009E5EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1920F6E32E4D441C009E5EFA /* Build configuration list for PBXNativeTarget "nookmvp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1920F6E42E4D441C009E5EFA /* Debug */,
+				1920F6E52E4D441C009E5EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1920F6E62E4D441C009E5EFA /* Build configuration list for PBXNativeTarget "nookmvpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1920F6E72E4D441C009E5EFA /* Debug */,
+				1920F6E82E4D441C009E5EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1920F6E92E4D441C009E5EFA /* Build configuration list for PBXNativeTarget "nookmvpUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1920F6EA2E4D441C009E5EFA /* Debug */,
+				1920F6EB2E4D441C009E5EFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1920F6B62E4D4419009E5EFA /* Project object */;
+}

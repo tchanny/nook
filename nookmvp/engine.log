@@ -1,0 +1,14 @@
+INFO:nook_engine.transcriber:Initializing WhisperTranscriber: faster_whisper, model: base.en
+INFO:nook_engine.diarizer:Initializing SpeakerDiarizer: resemblyzer
+INFO:nook_engine.audio_processor:Initializing AudioProcessor: sounddevice, SR: 16000
+INFO:nook_engine.ios_integration:🚀 Initializing iOS Integration Engine...
+INFO:nook_engine.simple_api:Initializing Simple Nook Engine...
+INFO:nook_engine.transcriber:Initializing backend: faster_whisper
+INFO:nook_engine.transcriber:faster-whisper initialized, model: base.en
+INFO:nook_engine.diarizer:Initializing method: resemblyzer
+INFO:nook_engine.diarizer:Resemblyzer initialized
+INFO:nook_engine.audio_processor:Initializing backend: sounddevice
+INFO:nook_engine.audio_processor:Using system audio device: BlackHole 16ch
+INFO:nook_engine.audio_processor:sounddevice initialized with device 0
+INFO:nook_engine.simple_api:✅ Simple Nook Engine initialized successfully
+INFO:nook_engine.ios_integration:✅ iOS Integration Engine initialized
