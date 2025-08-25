@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var engineManager = NookEngineManager()
+    @StateObject var presenter: MainPresenter
     
     var body: some View {
         ZStack {
@@ -24,67 +24,21 @@ struct ContentView: View {
             .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                // Минимальный заголовок
-                HStack {
-                    Text("Nook AI")
-                        .font(.system(size: 28, weight: .bold, design: .rounded))
-                        .foregroundColor(.primary)
-                    
-                    Spacer()
-                    
-                    // Индикатор статуса
-                    HStack(spacing: 8) {
-                        Circle()
-                            .fill(engineManager.isEngineReady ? Color.green : Color.red)
-                            .frame(width: 8, height: 8)
-                            .scaleEffect(engineManager.isEngineReady ? 1.0 : 0.8)
-                            .animation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true), value: engineManager.isEngineReady)
-                        
-                        Text(engineManager.isEngineReady ? "Готов" : "Не готов")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .padding(.horizontal, 24)
-                .padding(.top, 20)
-                .padding(.bottom, 16)
-                
-                // Основной контент
-                VStack(spacing: 24) {
-                    // Уведомление о микрофоне
-                    if !engineManager.microphonePermissionGranted {
-                        MicrophonePermissionView(engineManager: engineManager)
-                    }
-                    
-                    // Кнопки управления
-                    ControlButtonsView(engineManager: engineManager)
-                    
-                    // Панель транскрипции
-                    TranscriptionPanelView(
-                        transcription: engineManager.transcription,
-                        isListening: engineManager.isListening,
-                        currentSpeaker: engineManager.currentSpeaker,
-                        speakerSegments: engineManager.speakerSegments,
-                        fullTranscript: engineManager.fullTranscript
-                    )
-                }
-                .padding(.horizontal, 24)
-                
+                HeaderView(isReady: presenter.isEngineReady)
+                BodyView(presenter: presenter)
                 Spacer()
             }
         }
         .frame(minWidth: 800, minHeight: 600)
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                engineManager.initializeEngine()
-            }
+            presenter.onAppear()
         }
     }
 }
 
 // MARK: - Microphone Permission View
 struct MicrophonePermissionView: View {
-    let engineManager: NookEngineManager
+    let openSettingsAction: () -> Void
     
     var body: some View {
         HStack(spacing: 16) {
@@ -106,9 +60,7 @@ struct MicrophonePermissionView: View {
             
             Spacer()
             
-            Button("Настройки") {
-                engineManager.openSystemPreferences()
-            }
+            Button("Настройки", action: openSettingsAction)
             .buttonStyle(.borderedProminent)
             .controlSize(.small)
         }
@@ -126,14 +78,12 @@ struct MicrophonePermissionView: View {
 
 // MARK: - Control Buttons View
 struct ControlButtonsView: View {
-    let engineManager: NookEngineManager
+    let presenter: MainPresenter
     
     var body: some View {
         HStack(spacing: 20) {
             // Кнопка запуска движка
-            Button(action: {
-                engineManager.launchEngine()
-            }) {
+            Button(action: { presenter.onLaunchTap() }) {
                 HStack(spacing: 8) {
                     Image(systemName: "play.circle.fill")
                         .font(.system(size: 16, weight: .medium))
@@ -149,22 +99,22 @@ struct ControlButtonsView: View {
                 )
             }
             .buttonStyle(PlainButtonStyle())
-            .disabled(engineManager.isEngineReady)
+            .disabled(presenter.isEngineReady)
 
             // Кнопка инициализации/очистки
             Button(action: {
-                if engineManager.isEngineReady {
+                if presenter.isEngineReady {
                     // Не вызываем cleanup автоматически, только при явном нажатии
                     print("ℹ️ Engine is ready, no action needed")
                 } else {
-                    engineManager.initializeEngine()
+                    presenter.onInitTap()
                 }
             }) {
                 HStack(spacing: 8) {
-                    Image(systemName: engineManager.isEngineReady ? "checkmark.circle.fill" : "gearshape.fill")
+                    Image(systemName: presenter.isEngineReady ? "checkmark.circle.fill" : "gearshape.fill")
                         .font(.system(size: 16, weight: .medium))
                     
-                    Text(engineManager.isEngineReady ? "Готов" : "Инициализация")
+                    Text(presenter.isEngineReady ? "Готов" : "Инициализация")
                         .font(.system(size: 14, weight: .medium))
                 }
                 .foregroundColor(.white)
@@ -172,27 +122,21 @@ struct ControlButtonsView: View {
                 .padding(.vertical, 12)
                 .background(
                     RoundedRectangle(cornerRadius: 0)
-                        .fill(engineManager.isEngineReady ? Color.green : Color.blue)
+                        .fill(presenter.isEngineReady ? Color.green : Color.blue)
                 )
-                .scaleEffect(engineManager.isEngineReady ? 1.0 : 1.0)
-                .animation(.easeInOut(duration: 0.2), value: engineManager.isEngineReady)
+                .scaleEffect(presenter.isEngineReady ? 1.0 : 1.0)
+                .animation(.easeInOut(duration: 0.2), value: presenter.isEngineReady)
             }
             .buttonStyle(PlainButtonStyle())
-            .disabled(engineManager.isEngineReady) // Отключаем кнопку когда движок готов
+            .disabled(presenter.isEngineReady)
             
             // Кнопка записи/остановки
-            Button(action: {
-                if engineManager.isListening {
-                    engineManager.stopListening()
-                } else {
-                    engineManager.startListening()
-                }
-            }) {
+            Button(action: { presenter.onRecordTap() }) {
                 HStack(spacing: 8) {
-                    Image(systemName: engineManager.isListening ? "stop.fill" : "mic.fill")
+                    Image(systemName: presenter.isListening ? "stop.fill" : "mic.fill")
                         .font(.system(size: 16, weight: .medium))
                     
-                    Text(engineManager.isListening ? "Стоп" : "Запись")
+                    Text(presenter.isListening ? "Стоп" : "Запись")
                         .font(.system(size: 14, weight: .medium))
                 }
                 .foregroundColor(.white)
@@ -200,20 +144,18 @@ struct ControlButtonsView: View {
                 .padding(.vertical, 12)
                 .background(
                     RoundedRectangle(cornerRadius: 0)
-                        .fill(engineManager.isListening ? Color.red : Color.green)
+                        .fill(presenter.isListening ? Color.red : Color.green)
                 )
-                .scaleEffect(engineManager.isListening ? 1.0 : 1.0)
-                .animation(.easeInOut(duration: 0.2), value: engineManager.isListening)
+                .scaleEffect(presenter.isListening ? 1.0 : 1.0)
+                .animation(.easeInOut(duration: 0.2), value: presenter.isListening)
             }
             .buttonStyle(PlainButtonStyle())
-            .disabled(!engineManager.microphonePermissionGranted)
-            .opacity((!engineManager.microphonePermissionGranted) ? 0.5 : 1.0)
+            .disabled(!presenter.microphonePermissionGranted)
+            .opacity((!presenter.microphonePermissionGranted) ? 0.5 : 1.0)
             
             // Кнопка очистки (только когда движок готов)
-            if engineManager.isEngineReady {
-                Button(action: {
-                    engineManager.cleanup()
-                }) {
+            if presenter.isEngineReady {
+                Button(action: { presenter.onCleanupTap() }) {
                     HStack(spacing: 8) {
                         Image(systemName: "trash.fill")
                             .font(.system(size: 16, weight: .medium))
@@ -548,6 +490,6 @@ struct TranscriptionContentSingleLine: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(presenter: MainPresenter(engine: PythonEngineService()))
     }
 }

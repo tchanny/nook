@@ -11,7 +11,8 @@ import SwiftUI
 struct nookmvpApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let presenter = MainPresenter(engine: PythonEngineService())
+            ContentView(presenter: presenter)
         }
     }
 }
