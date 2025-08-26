@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 
 struct MicrophonePermissionView: View {
     let openSettingsAction: () -> Void
