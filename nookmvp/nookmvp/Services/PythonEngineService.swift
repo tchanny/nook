@@ -117,7 +117,8 @@ final class PythonEngineService: EngineService {
             "type": "start_listening",
             "output_file": "live_transcription.json",
             "enable_diarization": true,
-            "partial_updates": false
+            "partial_updates": true,
+            "update_interval": 0.1
         ])
         isListening.send(true)
     }
@@ -139,7 +140,7 @@ final class PythonEngineService: EngineService {
         statusTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.checkEngineStatus()
         }
-        streamTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+        streamTimer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { _ in
             self.checkStream()
         }
     }
