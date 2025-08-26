@@ -17,6 +17,7 @@ final class PythonEngineService: EngineService {
     private var engineProcess: Process?
     private var engineLogFile: URL?
     private var lastProcessedLineCount: Int = 0
+    private var lastSeenLineHash: Int = 0
 
     private var statusFile: String { "\(tempDir)/status.json" }
     private var commandFile: String { "\(tempDir)/command.json" }
@@ -183,6 +184,32 @@ final class PythonEngineService: EngineService {
             let data = try Data(contentsOf: URL(fileURLWithPath: pathToUse))
             guard let content = String(data: data, encoding: .utf8) else { return }
             let lines = content.components(separatedBy: .newlines).filter { !$0.isEmpty }
+
+            // Handle file truncation (engine may rewrite file)
+            if lines.count < lastProcessedLineCount {
+                lastProcessedLineCount = 0
+            }
+
+            // If this is a continuously rewritten single-line stream, process last line on change
+            if pathToUse == altStream {
+                guard let last = lines.last else { return }
+                let currentHash = last.hashValue
+                if currentHash == lastSeenLineHash { return }
+                lastSeenLineHash = currentHash
+                guard let update = try? JSONSerialization.jsonObject(with: Data(last.utf8)) as? [String: Any] else { return }
+                let text = (update["text"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                let speaker = update["speaker"] as? String ?? "Unknown"
+                let isFinal = update["is_final"] as? Bool ?? false
+                guard !text.isEmpty else { return }
+                if isFinal {
+                    finalSegment.send((speaker: speaker, text: text))
+                } else {
+                    liveText.send(text)
+                }
+                return
+            }
+
+            // Default: process only newly appended lines
             if lines.count > lastProcessedLineCount {
                 let newLines = Array(lines.suffix(from: lastProcessedLineCount))
                 for line in newLines {
