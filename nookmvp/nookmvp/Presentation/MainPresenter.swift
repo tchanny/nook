@@ -51,6 +51,7 @@ final class MainPresenter: ObservableObject {
         engine.liveText
             .receive(on: DispatchQueue.main)
             .sink { [weak self] text in
+                print("🟡 Partial from engine: \(text)")
                 self?.handlePartial(text)
             }
             .store(in: &cancellables)
@@ -58,7 +59,15 @@ final class MainPresenter: ObservableObject {
         engine.finalSegment
             .receive(on: DispatchQueue.main)
             .sink { [weak self] seg in
+                print("🟢 Final from engine: \(seg.speaker): \(seg.text)")
                 self?.handleFinal(speaker: seg.speaker, text: seg.text)
+            }
+            .store(in: &cancellables)
+
+        engine.errorText
+            .receive(on: DispatchQueue.main)
+            .sink { err in
+                print("🔴 Engine error: \(err)")
             }
             .store(in: &cancellables)
     }
