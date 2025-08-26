@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19070AA32E5DEC7400494B23 /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19070A962E5DEC7400494B23 /* BodyView.swift */; };
+		19070AA42E5DEC7400494B23 /* ControlButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19070A972E5DEC7400494B23 /* ControlButtonsView.swift */; };
+		19070AA52E5DEC7400494B23 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19070A982E5DEC7400494B23 /* HeaderView.swift */; };
+		19070AA62E5DEC7400494B23 /* MicrophonePermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19070A992E5DEC7400494B23 /* MicrophonePermissionView.swift */; };
+		19070AA72E5DEC7400494B23 /* TranscriptionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19070A9A2E5DEC7400494B23 /* TranscriptionViews.swift */; };
+		19070AA82E5DEC7400494B23 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19070A9C2E5DEC7400494B23 /* MainPresenter.swift */; };
+		19070AA92E5DEC7400494B23 /* EngineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19070A9E2E5DEC7400494B23 /* EngineService.swift */; };
+		19070AAA2E5DEC7400494B23 /* PythonEngineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19070A9F2E5DEC7400494B23 /* PythonEngineService.swift */; };
+		19070AAB2E5DEC7400494B23 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19070AA12E5DEC7400494B23 /* Models.swift */; };
 		191CE4C72E4D4BCA009D317B /* NookEngineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191CE4C02E4D4BCA009D317B /* NookEngineManager.swift */; };
 		191CE4CD2E4D4BCA009D317B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 191CE4C62E4D4BCA009D317B /* Info.plist */; };
 		1920F6C22E4D4419009E5EFA /* nookmvpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920F6C12E4D4419009E5EFA /* nookmvpApp.swift */; };
@@ -36,6 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19070A962E5DEC7400494B23 /* BodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
+		19070A972E5DEC7400494B23 /* ControlButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlButtonsView.swift; sourceTree = "<group>"; };
+		19070A982E5DEC7400494B23 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		19070A992E5DEC7400494B23 /* MicrophonePermissionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophonePermissionView.swift; sourceTree = "<group>"; };
+		19070A9A2E5DEC7400494B23 /* TranscriptionViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranscriptionViews.swift; sourceTree = "<group>"; };
+		19070A9C2E5DEC7400494B23 /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		19070A9E2E5DEC7400494B23 /* EngineService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineService.swift; sourceTree = "<group>"; };
+		19070A9F2E5DEC7400494B23 /* PythonEngineService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PythonEngineService.swift; sourceTree = "<group>"; };
+		19070AA12E5DEC7400494B23 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		191CE4C02E4D4BCA009D317B /* NookEngineManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NookEngineManager.swift; sourceTree = "<group>"; };
 		191CE4C62E4D4BCA009D317B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1920F6BE2E4D4419009E5EFA /* nookmvp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nookmvp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +94,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19070A9B2E5DEC7400494B23 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				19070A962E5DEC7400494B23 /* BodyView.swift */,
+				19070A972E5DEC7400494B23 /* ControlButtonsView.swift */,
+				19070A982E5DEC7400494B23 /* HeaderView.swift */,
+				19070A992E5DEC7400494B23 /* MicrophonePermissionView.swift */,
+				19070A9A2E5DEC7400494B23 /* TranscriptionViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		19070A9D2E5DEC7400494B23 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				19070A9B2E5DEC7400494B23 /* Views */,
+				19070A9C2E5DEC7400494B23 /* MainPresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		19070AA02E5DEC7400494B23 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				19070A9E2E5DEC7400494B23 /* EngineService.swift */,
+				19070A9F2E5DEC7400494B23 /* PythonEngineService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		19070AA22E5DEC7400494B23 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				19070AA12E5DEC7400494B23 /* Models.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		1920F6B52E4D4419009E5EFA = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +157,9 @@
 			children = (
 				1920F6C12E4D4419009E5EFA /* nookmvpApp.swift */,
 				19B9DE562E55E2CC00475614 /* ContentView.swift */,
+				19070AA22E5DEC7400494B23 /* Domain */,
+				19070A9D2E5DEC7400494B23 /* Presentation */,
+				19070AA02E5DEC7400494B23 /* Services */,
 				1920F6C52E4D441B009E5EFA /* Assets.xcassets */,
 				1920F6CA2E4D441B009E5EFA /* nookmvp.entitlements */,
 				191CE4C62E4D4BCA009D317B /* Info.plist */,
@@ -267,7 +326,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				191CE4C72E4D4BCA009D317B /* NookEngineManager.swift in Sources */,
+				19070AA92E5DEC7400494B23 /* EngineService.swift in Sources */,
+				19070AA72E5DEC7400494B23 /* TranscriptionViews.swift in Sources */,
+				19070AAB2E5DEC7400494B23 /* Models.swift in Sources */,
+				19070AA52E5DEC7400494B23 /* HeaderView.swift in Sources */,
+				19070AA42E5DEC7400494B23 /* ControlButtonsView.swift in Sources */,
+				19070AA82E5DEC7400494B23 /* MainPresenter.swift in Sources */,
+				19070AAA2E5DEC7400494B23 /* PythonEngineService.swift in Sources */,
 				19B9DE572E55E2CC00475614 /* ContentView.swift in Sources */,
+				19070AA32E5DEC7400494B23 /* BodyView.swift in Sources */,
+				19070AA62E5DEC7400494B23 /* MicrophonePermissionView.swift in Sources */,
 				1920F6C22E4D4419009E5EFA /* nookmvpApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
