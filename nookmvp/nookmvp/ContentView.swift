@@ -9,7 +9,7 @@ import SwiftUI
 import AppKit
 
 struct ContentView: View {
-    @StateObject var presenter: MainPresenter
+    @ObservedObject var presenter: MainPresenter
     
     var body: some View {
         ZStack {

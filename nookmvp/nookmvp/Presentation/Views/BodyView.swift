@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BodyView: View {
-    let presenter: MainPresenter
+    @ObservedObject var presenter: MainPresenter
     
     var body: some View {
         VStack(spacing: 24) {

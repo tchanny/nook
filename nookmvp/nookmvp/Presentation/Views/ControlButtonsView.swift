@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ControlButtonsView: View {
-    let presenter: MainPresenter
+    @ObservedObject var presenter: MainPresenter
     
     var body: some View {
         HStack(spacing: 20) {
