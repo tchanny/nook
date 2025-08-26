@@ -61,10 +61,7 @@ def main():
             model_size="small.en",  # faster than base.en
             continuous_mode=True,
             interruption_gap=0.7,     # faster finals
-            temp_dir=temp_dir,
-            vad_sensitivity=0.35,     # hear softer speech
-            min_speech_ms=120,        # admit shorter utterances
-            min_silence_ms=350        # quicker segmentation
+            temp_dir=temp_dir
         )
         
         # Инициализировать
