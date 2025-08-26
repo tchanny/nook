@@ -58,10 +58,13 @@ def main():
         create_communication_files(temp_dir)
         
         engine = create_macos_engine(
-            model_size="base.en",
+            model_size="small.en",  # faster than base.en
             continuous_mode=True,
-            interruption_gap=1.0,
-            temp_dir=temp_dir
+            interruption_gap=0.7,     # faster finals
+            temp_dir=temp_dir,
+            vad_sensitivity=0.35,     # hear softer speech
+            min_speech_ms=120,        # admit shorter utterances
+            min_silence_ms=350        # quicker segmentation
         )
         
         # Инициализировать
@@ -71,7 +74,7 @@ def main():
             return
         
         print("✅ Движок успешно инициализирован!")
-        print("🔄 Continuous mode: ON (interruption gap: 1.0s)")
+        print("🔄 Continuous mode: ON (interruption gap: 0.7s)")
         print("🖥️ macOS приложение может теперь подключаться")
         
         # Показать файлы

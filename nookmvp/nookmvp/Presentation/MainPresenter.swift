@@ -88,9 +88,18 @@ final class MainPresenter: ObservableObject {
     private func handleFinal(speaker: String, text: String) {
         let normalized = normalizeText(text)
         guard !normalized.isEmpty else { return }
-        let toAppend = dropOverlap(prefix: normalized, againstSuffixOf: cumulativeText, maxTokens: 8)
-        let sep = cumulativeText.isEmpty ? "" : " "
-        cumulativeText += sep + toAppend
+        // Stronger deduplication: if recent tail already contains this final, skip
+        let recentTail = String(cumulativeText.suffix(220))
+        if recentTail.localizedCaseInsensitiveContains(normalized) ||
+            cumulativeText.hasSuffix(normalized) {
+            // Do not duplicate identical final segments
+        } else {
+            let toAppend = dropOverlap(prefix: normalized, againstSuffixOf: cumulativeText, maxTokens: 12)
+            let sep = cumulativeText.isEmpty ? "" : " "
+            cumulativeText += sep + toAppend
+            // Collapse accidental duplicate punctuation/spaces
+            cumulativeText = cumulativeText.replacingOccurrences(of: "  +", with: " ", options: .regularExpression)
+        }
         lastPartialText = ""
         transcription = cumulativeText
         speakerSegments.append(TranscriptSegment(speaker: speaker, text: normalized))
