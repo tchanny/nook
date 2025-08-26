@@ -18,6 +18,8 @@ final class MainPresenter: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     private var cumulativeText: String = ""
     private var lastPartialText: String = ""
+    private var seenFinalHashes: [String] = [] // FIFO of recent finals (normalized)
+    private let seenFinalMax = 200
 
     init(engine: EngineService) {
         self.engine = engine
@@ -88,6 +90,11 @@ final class MainPresenter: ObservableObject {
     private func handleFinal(speaker: String, text: String) {
         let normalized = normalizeText(text)
         guard !normalized.isEmpty else { return }
+        let key = normalized.lowercased()
+        if seenFinalHashes.contains(key) {
+            // Skip duplicate finals seen previously
+            return
+        }
         // Stronger deduplication: if recent tail already contains this final, skip
         let recentTail = String(cumulativeText.suffix(220))
         if recentTail.localizedCaseInsensitiveContains(normalized) ||
@@ -100,6 +107,9 @@ final class MainPresenter: ObservableObject {
             // Collapse accidental duplicate punctuation/spaces
             cumulativeText = cumulativeText.replacingOccurrences(of: "  +", with: " ", options: .regularExpression)
         }
+        // Track seen finals (bounded)
+        seenFinalHashes.append(key)
+        if seenFinalHashes.count > seenFinalMax { seenFinalHashes.removeFirst(seenFinalHashes.count - seenFinalMax) }
         lastPartialText = ""
         transcription = cumulativeText
         speakerSegments.append(TranscriptSegment(speaker: speaker, text: normalized))

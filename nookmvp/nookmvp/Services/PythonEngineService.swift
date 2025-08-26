@@ -18,6 +18,8 @@ final class PythonEngineService: EngineService {
     private var engineLogFile: URL?
     private var lastProcessedLineCount: Int = 0
     private var lastSeenLineHash: Int = 0
+    private var recentLineHashes: [Int] = []
+    private let recentHashesLimit = 500
 
     private var statusFile: String { "\(tempDir)/status.json" }
     private var commandFile: String { "\(tempDir)/command.json" }
@@ -200,6 +202,10 @@ final class PythonEngineService: EngineService {
                 let speaker = update["speaker"] as? String ?? "Unknown"
                 let isFinal = update["is_final"] as? Bool ?? false
                 guard !text.isEmpty else { return }
+                let contentHash = (speaker + "|" + text).hashValue
+                if recentLineHashes.contains(contentHash) { return }
+                recentLineHashes.append(contentHash)
+                if recentLineHashes.count > recentHashesLimit { recentLineHashes.removeFirst(recentLineHashes.count - recentHashesLimit) }
                 if isFinal {
                     finalSegment.send((speaker: speaker, text: text))
                 } else {
@@ -217,6 +223,10 @@ final class PythonEngineService: EngineService {
                     let speaker = update["speaker"] as? String ?? "Unknown"
                     let isFinal = update["is_final"] as? Bool ?? false
                     guard !text.isEmpty else { continue }
+                    let contentHash = (speaker + "|" + text).hashValue
+                    if recentLineHashes.contains(contentHash) { continue }
+                    recentLineHashes.append(contentHash)
+                    if recentLineHashes.count > recentHashesLimit { recentLineHashes.removeFirst(recentLineHashes.count - recentHashesLimit) }
                     if isFinal {
                         finalSegment.send((speaker: speaker, text: text))
                     } else {
