@@ -87,6 +87,10 @@ final class MainPresenter: ObservableObject {
     private func handlePartial(_ partial: String) {
         let normalized = normalizeText(partial)
         guard !normalized.isEmpty else { return }
+        
+        // Filter out low-quality partials (too short, repetitive, or nonsensical)
+        guard isValidPartial(normalized) else { return }
+        
         if !lastPartialText.isEmpty {
             if cumulativeText.hasSuffix(" " + lastPartialText) {
                 cumulativeText.removeLast(lastPartialText.count + 1)
@@ -100,10 +104,14 @@ final class MainPresenter: ObservableObject {
         lastPartialText = normalized
         transcription = cumulativeText
     }
-
+    
     private func handleFinal(speaker: String, text: String) {
         let normalized = normalizeText(text)
         guard !normalized.isEmpty else { return }
+        
+        // Strong quality filtering for finals
+        guard isValidFinal(normalized) else { return }
+        
         let key = normalized.lowercased()
         if seenFinalHashes.contains(key) {
             // Skip duplicate finals seen previously
@@ -129,6 +137,101 @@ final class MainPresenter: ObservableObject {
         speakerSegments.append(TranscriptSegment(speaker: speaker, text: normalized))
         currentSpeaker = speaker
         fullTranscript = cumulativeText
+    }
+    
+    // MARK: - Quality Filtering
+    
+    private func isValidPartial(_ text: String) -> Bool {
+        let words = text.split(whereSeparator: { $0.isWhitespace })
+        
+        // Reject very short partials (likely noise)
+        guard words.count >= 2 else { return false }
+        
+        // Reject repetitive patterns
+        if hasRepetitivePattern(words) { return false }
+        
+        // Reject nonsensical word combinations
+        if hasNonsensicalCombination(words) { return false }
+        
+        return true
+    }
+    
+    private func isValidFinal(_ text: String) -> Bool {
+        let words = text.split(whereSeparator: { $0.isWhitespace })
+        
+        // Reject very short finals
+        guard words.count >= 3 else { return false }
+        
+        // Reject repetitive patterns
+        if hasRepetitivePattern(words) { return false }
+        
+        // Reject nonsensical word combinations
+        if hasNonsensicalCombination(words) { return false }
+        
+        // Reject incomplete sentences (missing proper ending)
+        if !hasProperEnding(text) { return false }
+        
+        return true
+    }
+    
+    private func hasRepetitivePattern(_ words: [Substring]) -> Bool {
+        // Check for A B A B patterns
+        if words.count >= 4 {
+            for i in 0..<(words.count - 3) {
+                if words[i] == words[i+2] && words[i+1] == words[i+3] {
+                    return true
+                }
+            }
+        }
+        
+        // Check for consecutive identical words
+        for i in 1..<words.count {
+            if words[i] == words[i-1] {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    private func hasNonsensicalCombination(_ words: [Substring]) -> Bool {
+        // Common nonsensical patterns to reject
+        let nonsensicalPatterns = [
+            "this meme", "tell a ball", "holdings", "callings",
+            "hear me", "do you hear me"
+        ]
+        
+        let text = words.joined(separator: " ").lowercased()
+        for pattern in nonsensicalPatterns {
+            if text.contains(pattern) {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    private func hasProperEnding(_ text: String) -> Bool {
+        // Check if text ends with proper punctuation or common sentence endings
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        let properEndings = [".", "!", "?", "...", "etc", "etc."]
+        
+        for ending in properEndings {
+            if trimmed.hasSuffix(ending) {
+                return true
+            }
+        }
+        
+        // Check for common sentence endings
+        let commonEndings = ["thank you", "thanks", "goodbye", "bye", "see you", "that's all"]
+        let lowerText = trimmed.lowercased()
+        for ending in commonEndings {
+            if lowerText.hasSuffix(ending) {
+                return true
+            }
+        }
+        
+        return false
     }
 
     private func normalizeText(_ text: String) -> String {
