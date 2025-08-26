@@ -83,26 +83,8 @@ struct TranscriptionContentSingleLine: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                if isListening {
-                    HStack(spacing: 12) {
-                        Circle()
-                            .fill(Color.green)
-                            .frame(width: 8, height: 8)
-                        Text(liveText.isEmpty ? "Listening..." : liveText)
-                            .font(.title3)
-                            .foregroundColor(.primary)
-                            .textSelection(.enabled)
-                    }
-                    .padding(12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.green.opacity(0.08))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.green.opacity(0.2), lineWidth: 1)
-                            )
-                    )
-                } else if !liveText.isEmpty {
+                // Show only final text (passed via liveText string from presenter)
+                if !liveText.isEmpty {
                     Text(liveText)
                         .font(.title3)
                         .foregroundColor(.primary)

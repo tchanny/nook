@@ -115,8 +115,7 @@ final class PythonEngineService: EngineService {
             "type": "start_listening",
             "output_file": "live_transcription.json",
             "enable_diarization": true,
-            "partial_updates": true,
-            "update_interval": 0.25
+            "partial_updates": false
         ])
         isListening.send(true)
     }

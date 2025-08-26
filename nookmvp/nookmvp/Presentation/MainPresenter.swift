@@ -48,11 +48,11 @@ final class MainPresenter: ObservableObject {
             .receive(on: DispatchQueue.main)
             .assign(to: &self.$engineStatus)
 
+        // Ignore partials in UI (we only show finals)
         engine.liveText
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] text in
+            .sink { text in
                 print("🟡 Partial from engine: \(text)")
-                self?.handlePartial(text)
             }
             .store(in: &cancellables)
 
@@ -82,20 +82,7 @@ final class MainPresenter: ObservableObject {
     }
 
     private func handlePartial(_ partial: String) {
-        let normalized = normalizeText(partial)
-        guard !normalized.isEmpty else { return }
-        if !lastPartialText.isEmpty {
-            if cumulativeText.hasSuffix(" " + lastPartialText) {
-                cumulativeText.removeLast(lastPartialText.count + 1)
-            } else if cumulativeText.hasSuffix(lastPartialText) {
-                cumulativeText.removeLast(lastPartialText.count)
-            }
-        }
-        let toAppend = dropOverlap(prefix: normalized, againstSuffixOf: cumulativeText, maxTokens: 8)
-        let sep = cumulativeText.isEmpty || toAppend.isEmpty ? "" : " "
-        cumulativeText += sep + toAppend
-        lastPartialText = normalized
-        transcription = cumulativeText
+        // No-op: partials are not shown in UI
     }
 
     private func handleFinal(speaker: String, text: String) {
